@@ -1,9 +1,6 @@
 import webapp2
 from paste import httpserver
-
-class HelloWorldHandler(webapp2.RequestHandler) :
-    def get(self) :
-        self.response.write('Hello World')
+from handlers.hello_world_handler import HelloWorldHandler
 
 routes = [
     ('/', HelloWorldHandler)
