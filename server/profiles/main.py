@@ -1,14 +1,16 @@
 import webapp2
 from m2wsgi.io.standard import WSGIHandler, Connection
 from handlers.hello_world_handler import HelloWorldHandler
-from handlers.todo_handler import CreateTodoHandler, DeleteTodoHandler, ListTodoshandler
+from handlers.todo_handler import CreateTodoHandler, DeleteTodoHandler, ListTodosHandler, TodosPageHandler
+
 from sqlobject import *
 
 routes = [
     ('/hello/', HelloWorldHandler),
+    ('/todo', TodosPageHandler),
     ('/todo/create', CreateTodoHandler),
     ('/todo/delete', DeleteTodoHandler),
-    ('/todo/list', ListTodoshandler),
+    ('/todo/list', ListTodosHandler),
 ]
 
 app = webapp2.WSGIApplication(routes,debug = True)
