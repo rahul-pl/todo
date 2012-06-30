@@ -1,9 +1,14 @@
 import webapp2
 from m2wsgi.io.standard import WSGIHandler, Connection
 from handlers.hello_world_handler import HelloWorldHandler
+from handlers.todo_handler import CreateTodoHandler, DeleteTodoHandler, ListTodoshandler
+from sqlobject import *
 
 routes = [
-    ('/hello/', HelloWorldHandler)
+    ('/hello/', HelloWorldHandler),
+    ('/todo/create', CreateTodoHandler),
+    ('/todo/delete', DeleteTodoHandler),
+    ('/todo/list', ListTodoshandler),
 ]
 
 app = webapp2.WSGIApplication(routes,debug = True)
@@ -15,6 +20,8 @@ def main() :
     print 'Server started'
     handler = WSGIHandler(app, conn)
     handler.serve()
+
+    sqlhub.processConnection = connectionForURI('sqlite:///Users/rahulpaliwal/projects/todo/server/profiles/handlers/database/todo.db')
 
 if __name__ == "__main__" :
     main()
