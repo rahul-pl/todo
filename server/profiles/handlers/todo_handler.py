@@ -18,7 +18,9 @@ class CreateTodoHandler(webapp2.RequestHandler) :
         self.response.write('Todo created' + todo_sub)
 
 class DeleteTodoHandler(webapp2.RequestHandler) :
-    def get(self) :
+    def post(self) :
+        id = self.request.get('id')
+        Todo.delete(id)
         self.response.write('Todo deleted')
 
 class ListTodosHandler(webapp2.RequestHandler) :
