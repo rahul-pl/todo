@@ -1,0 +1,13 @@
+<title> Todos </title>
+
+<html>
+    <body>
+        <h1> TODOS are - </h1>
+
+        <ul>
+        {% for todo in todos %}
+        <li> {{todo.id}} - {{todo.todo}} </li>
+        {% endfor %}
+        </ul>
+    </body>
+</html>

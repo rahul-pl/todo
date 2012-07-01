@@ -1,7 +1,8 @@
 import webapp2
 from m2wsgi.io.standard import WSGIHandler, Connection
 from handlers.hello_world_handler import HelloWorldHandler
-from handlers.todo_handler import CreateTodoHandler, DeleteTodoHandler, ListTodosHandler, TodosPageHandler
+from handlers.todo_api_handler import CreateTodoHandler, DeleteTodoHandler, ListTodosHandler
+from handlers.todo_page_handler import TodosPageHandler
 
 from sqlobject import *
 

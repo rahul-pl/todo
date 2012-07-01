@@ -3,14 +3,6 @@ import database.connection
 from database.model.todo import Todo
 import json
 
-class TodosPageHandler(webapp2.RequestHandler) :
-    def get(self) :
-        selections = Todo.select()
-        response_string = ''
-        for selection in selections :
-            response_string += str(selection.id) + ' -> ' + selection.todo + '<br>'
-        self.response.write(response_string)
-
 class CreateTodoHandler(webapp2.RequestHandler) :
     def post(self) :
         todo_sub = self.request.get('todo')
