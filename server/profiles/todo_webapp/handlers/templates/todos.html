@@ -9,5 +9,17 @@
         <li> {{todo.id}} - {{todo.todo}} </li>
         {% endfor %}
         </ul>
+
+        <h1> POST a new TODO here - </h1>
+
+        <form action="/todo/create" method="post">
+            <input type="text" name="todo" size=20 />
+        </form>
+
+        <h1> DELETE an existing TODO by id here - </h1>
+
+        <form action="/todo/delete" method="post">
+            <input type="text" name="id" size=20 />
+        </form>
     </body>
 </html>
